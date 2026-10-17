@@ -78,6 +78,14 @@ private func firstMatch(pattern: String, in text: String) -> [String]? {
     }
 }
 
+/// El TUI está listo para recibir comandos cuando pinta su prompt.
+/// Sin umbral de bytes: el TUI actual pinta el prompt con ~1,6 KB y
+/// en reposo no llega a 3 KB, así que exigir un mínimo de salida
+/// hacía que la espera siempre agotara el plazo.
+func isTUIPromptReady(_ text: String) -> Bool {
+    text.contains("❯")
+}
+
 /// Fracción 0...1 para la barra (el % puede pasar de 100).
 func usageBarFraction(percent: Int) -> Double {
     min(max(Double(percent) / 100, 0), 1)
@@ -177,7 +185,7 @@ func fetchSubscriptionUsage(musePath: String, workingDirectory: String) -> Resul
         }
         let text = String(decoding: output, as: UTF8.self)
         guard let sentAt = usageSentAt else {
-            if text.contains("❯"), output.count > 3000 {
+            if isTUIPromptReady(text) {
                 ptyWrite(master, "/usage\r")
                 usageSentAt = Date()
             } else if Date().timeIntervalSince(started) > promptDeadline {

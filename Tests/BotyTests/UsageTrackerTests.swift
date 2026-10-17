@@ -34,6 +34,14 @@ final class UsageTrackerTests: XCTestCase {
         XCTAssertNil(parseUsagePanel("Subscription · X │ Current 9% used · Resets at 6:27 PM"))
     }
 
+    func testPromptReadyWithoutByteThreshold() {
+        // El TUI 1.4.10 pinta el prompt con ~1,6 KB de salida; exigir
+        // >3 KB hacía esperar siempre hasta el plazo (90 s).
+        XCTAssertTrue(isTUIPromptReady("Muse Code 1.4.10\n❯ "))
+        XCTAssertFalse(isTUIPromptReady("Muse Code 1.4.10\nCargando…"))
+        XCTAssertFalse(isTUIPromptReady(""))
+    }
+
     func testBarFraction() {
         XCTAssertEqual(usageBarFraction(percent: 0), 0)
         XCTAssertEqual(usageBarFraction(percent: 50), 0.5)
