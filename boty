@@ -1,0 +1,13 @@
+#!/bin/bash
+# Launcher de desarrollo de Boty: compila si hay cambios y abre la app.
+# Uso: boty (acepta los mismos argumentos que `swift run`)
+set -euo pipefail
+SRC="$0"
+while [ -L "$SRC" ]; do
+    DIR="$(cd "$(dirname "$SRC")" && pwd)"
+    SRC="$(readlink "$SRC")"
+    case "$SRC" in /*) ;; *) SRC="$DIR/$SRC";; esac
+done
+ROOT="$(cd "$(dirname "$SRC")" && pwd)"
+cd "$ROOT"
+exec swift run "$@"

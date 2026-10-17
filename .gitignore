@@ -1,0 +1,35 @@
+# Build y app generada
+.build/
+Boty.app/
+.DS_Store
+
+# Secretos y credenciales — nunca versionar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*secret*
+*credential*
+auth.json
+
+# Datos locales de Boty / Muse si se copian por error al repo
+bots.json
+groups.json
+conversations*.json
+activeThreads.json
+grants.json
+attachments/
+
+# Docs internos del grupo — copia local, fuera del repo público
+AGENTS.md
+mejoras.md
+CIERRE.local.md
+
+# Xcode / SwiftPM local
+*.xcuserstate
+xcuserdata/
+.swiftpm/
