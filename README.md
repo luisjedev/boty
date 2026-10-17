@@ -27,9 +27,15 @@ App nativa de macOS para chatear con varios bots de IA desde una sola ventana. C
 - macOS 14 o superior.
 - El CLI `muse` instalado y con sesión iniciada (`muse login`). Boty no funciona sin tu propia cuenta de Muse Code.
 
-## Instalación (desde el código fuente)
+## Instalación
 
-No hay binario publicado: se compila en tu Mac.
+### Descarga (recomendado)
+
+Descarga `Boty-1.0.0.zip` desde [Releases](https://github.com/luisjedev/boty/releases/latest), descomprímelo y mueve `Boty.app` a tu carpeta Aplicaciones. Es un binario universal (Apple Silicon e Intel) para macOS 14+.
+
+> La app está firmada ad-hoc y no notarizada, así que la primera vez macOS puede bloquearla. Ábrela con clic derecho > Abrir, o ejecuta `xattr -dr com.apple.quarantine /Applications/Boty.app`.
+
+### Desde el código fuente
 
 ```bash
 git clone https://github.com/luisjedev/boty.git
