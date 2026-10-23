@@ -5,7 +5,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-green)
 
 App nativa de macOS para chatear con varios bots de IA desde una sola ventana. Cada bot tiene su propia personalidad, modelo y carpeta de trabajo, y los grupos permiten que varios bots colaboren en un mismo hilo mencionándose entre ellos. Boty se apoya en el CLI `muse` instalado en tu Mac, así que usas tu propia sesión y suscripción de Muse Code.
-
+Prueba manual
 > [!WARNING]
 > **Acceso total al Mac.** Los bots de Boty pueden leer y escribir archivos, ejecutar comandos de shell sin sandbox, navegar por la web y controlar apps del Mac (ventanas, navegador, capturas de pantalla). Revisa lo que pides a cada bot y usa solo bots y prompts en los que confíes. macOS puede pedir permisos adicionales (micrófono, reconocimiento de voz, grabación de pantalla, automatización) que se conceden en Ajustes del Sistema > Privacidad y seguridad.
 
